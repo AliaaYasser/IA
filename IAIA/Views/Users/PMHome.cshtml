@@ -1,0 +1,76 @@
+﻿@model IEnumerable<IAIA.Models.Project>
+
+@{
+    ViewBag.Title = "PMHome";
+}
+@section profile{
+    @Html.ActionLink("My Profie", "ProjectManagerProfile", new { id = ViewBag.pmid })
+
+}
+@section notify{
+<ul>
+    <li><a href='@Url.Action("listRequstes", "Users", new { tlid = ViewBag.pmid})'>Requstes</a></li>
+
+    <li>
+        @Html.ActionLink("feedbacks", "feedbacks")
+    </li>
+
+    <li>
+        @Html.ActionLink("projects that  delivered ", "DeleveredPRojectsByPm", new { pmid = ViewBag.pmid })
+    </li>
+
+    <li>
+        @Html.ActionLink("assign a team leader", "PMHome", new { id = ViewBag.pmid })
+    </li>
+    <li>
+        @Html.ActionLink("managing projects", "ManagingPRojectBypm", new { pmid = ViewBag.pmid })
+    </li>
+
+</ul>
+}
+<div class="container body-content">
+    <h4>Home/PM</h4>
+
+
+
+
+
+
+
+
+    <div class="gallery">
+        <div class="gallery-bottom grid">
+            @foreach (var item in Model)
+            {
+
+                <div class="col-md-3 g-left">
+                    <a href='@Url.Action("Details", "Projects",new { id=item.ProjectID})' rel="title" class="b-link-stripe b-animate-go  thickbox">
+                        <figure class="effect-oscar">
+
+                            <img src="~/Content/p4.jpg" />
+                            <figcaption>
+                                <h4>@item.ProjectName</h4>
+                                <p><i class="lnr lnr-magnifier"></i></p>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </div>
+                <br />
+                @Html.ActionLink("Assign Team Leader", "AssignTL", new { pid = item.ProjectID, pmid = ViewBag.pmid }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+                <br />
+
+                @Html.ActionLink("Assign junior developers ", "AssignJD", new { pid = item.ProjectID, pmid = ViewBag.pmid }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+                @Html.ActionLink(" Schedule", "Set_Schedule_for_project", new { id = item.ProjectID, pmid = ViewBag.pmid }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+                @Html.ActionLink("status", "isDelivered", new { pid = item.ProjectID }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+                @Html.ActionLink("Comment", "comment", new { pid = item.ProjectID, pmid = ViewBag.pmid }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+                @Html.ActionLink("price", "SetPrice", new { id = item.ProjectID, pmid = ViewBag.pmid }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+                @Html.ActionLink("All member", "listAllMember", new { pid = item.ProjectID, pmid = ViewBag.pmid }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+                @Html.ActionLink("leave the project", "leave", new { id = item.ProjectID, pmid = ViewBag.pmid }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })<br />
+
+
+
+            }
+        </div>
+    </div>
+</div>
+

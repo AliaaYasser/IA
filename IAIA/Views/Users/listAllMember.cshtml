@@ -1,0 +1,36 @@
+﻿@model IEnumerable<IAIA.Models.User>
+
+@{
+    ViewBag.Title = "listAllMember";
+}
+
+<h2>All Members </h2>
+
+<div class="container body-content">
+    <div class="gallery">
+        <div class="gallery-bottom grid">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 g-left">
+                    <a href='@Url.Action("Details", "Users",new { id=item.UserId})' rel="title" class="b-link-stripe b-animate-go  thickbox">
+                        <figure class="effect-oscar">
+
+                            <img src="@Url.Content(item.UserPhoto)" />
+                            <figcaption>
+                                <h4>@item.UserFirstName</h4>
+                                <p><i class="lnr lnr-magnifier"></i></p>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </div>
+
+                @Html.ActionLink("Remove", "Remove", new { id = item.UserId, pid = ViewBag.pid, pmid = ViewBag.pmid }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+                <br />
+
+            }
+
+
+        </div>
+    </div></div>
+

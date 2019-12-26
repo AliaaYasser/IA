@@ -1,0 +1,116 @@
+﻿@model IAIA.Models.User
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete @Model.UserFirstName?</h3>
+<div>
+    
+    <hr />
+
+
+    <div class="col-md-6 graph-2">
+        <h3 class="inner-tittle two">Delete this user?  </h3>
+        <div class="grid-1">
+            <div class="form-body">
+
+                <dt>
+                    <img src='@Url.Content(Model.UserPhoto)' style=" width:150px ;height:150px" />
+                </dt>
+
+            
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserExpirienceYears)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserExpirienceYears)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserEmail)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserEmail)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserJob_description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserJob_description)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserFirstName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserFirstName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserLasttName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserLasttName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserPhone)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserPhone)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserRole)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserRole)
+                </dd>
+
+               
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NumOFProject)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NumOFProject)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Qualifications)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Qualifications)
+                </dd>
+
+                </dl>
+            </div>
+
+        </div>
+    </div>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> 
+            @Html.ActionLink("Back to List", "Index",null, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+        </div>
+    }
+</div>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<IAIA.Models.Project>
+
+@{
+    ViewBag.Title = "ManagingPRojectBypm";
+}
+<div class="container body-content">
+    <h2>Managing PRoject Bypm</h2>
+
+
+    <div class="gallery">
+        <div class="gallery-bottom grid">
+            @foreach (var item in Model)
+            {
+
+                <div class="col-md-3 g-left">
+                    <a href='@Url.Action("Details", "Projects",new { id=item.ProjectID})' rel="title" class="b-link-stripe b-animate-go  thickbox">
+                        <figure class="effect-oscar">
+
+                            <img src="~/Content/p4.jpg" />
+                            <figcaption>
+                                <h4>@item.ProjectName</h4>
+                                <p><i class="lnr lnr-magnifier"></i></p>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </div>
+                <br />
+                
+
+            }
+
+        </div>
+    </div>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<IAIA.Models.Project>
+
+@{
+    ViewBag.Title = "AssignJDd";
+}
+
+<h2>AssignJDd</h2>
+
+
+<div class="gallery">
+    <div class="gallery-bottom grid">
+
+
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 g-left">
+                <a href='@Url.Action("Details", "Projects",new { id=item.ProjectID})' rel="title" class="b-link-stripe b-animate-go  thickbox">
+                    <figure class="effect-oscar">
+
+
+                        <img src="~/Content/p1.jpg" />
+                        <figcaption>
+                            <h4>@item.ProjectName</h4>
+                            <p><i class="lnr lnr-magnifier"></i></p>
+                        </figcaption>
+                    </figure>
+                </a>
+                <br />
+
+                @Html.ActionLink("Assign  junior developers ", "AssignJD", new { pid = item.ProjectID, pmid = ViewBag.tlid }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+                <br />
+                @Html.ActionLink("leave the project", "leave", new { id = item.ProjectID, pmid = ViewBag.tlid }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+                <br />
+                @Html.ActionLink("list All member", "listAlljd", new { pid = item.ProjectID, tlid = ViewBag.tlid }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })<br />
+                @Html.ActionLink("list All member", "listAlljd", new { pid = item.ProjectID, tlid = ViewBag.tlid }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })<br />
+                </div>
+                }
+
+
+            </div>
+        </div>
+

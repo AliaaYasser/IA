@@ -1,0 +1,18 @@
+﻿@model System.Collections.Generic.List<string>
+
+@{
+    ViewBag.Title = "feedbacks";
+}
+<div>
+    <h2>feedbacks</h2>
+
+    @foreach (var i in ViewBag.list)
+    {
+
+      <div>@i</div>
+      <hr />
+    }
+
+</div>
+
+

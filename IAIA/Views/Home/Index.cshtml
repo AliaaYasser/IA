@@ -1,0 +1,212 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Projects managment sysytem</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body id="myBtn">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:darkturquoise">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Projects Manangement System", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Login", "Login", "Home")</li>
+                    <li>@Html.ActionLink("Regester", "Create", "Users")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <div>
+            @Html.ActionLink("Create new Project", "CreateProject", null, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+        </div>
+        <hr />
+
+        <button id="myBtn">login</button>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <input type="text" class="text" value="UserEmail" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'UserEmail';}">
+                    <input type="password" value="UserPassword" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'UserPassword';}">
+                    <input type="text" value="UserRole" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'UserRole';}">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Login" class="btn btn-default" />
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="new">
+                        <p><label class="checkbox11"><input type="checkbox" name="checkbox"><i> </i>Forgot Password ?</label></p>
+                        <p class="sign">Do not have an account ? <a href="sign.html">Sign Up</a></p>
+                        <div class="clearfix"></div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="container body-content">
+
+            <div class="gallery">
+                <div class="gallery-bottom grid">
+
+                    <div class="col-md-3 g-left">
+
+                        <figure class="effect-oscar">
+                            <img src="~/Content/admin1.jpg" style="width:500px;height:500px" />
+                            <figcaption>
+
+                                <p><i class="lnr lnr-magnifier"></i></p>
+                            </figcaption>
+                        </figure>
+
+                    </div>
+                    <div class="col-md-3 g-left">
+
+                        <figure class="effect-oscar">
+                            <img src="~/Content/p4.jpg" style="width:500px;height:500px" />
+                            <figcaption>
+
+                                <p><i class="lnr lnr-magnifier"></i></p>
+                            </figcaption>
+                        </figure>
+
+                    </div>
+                    <div class="col-md-3 g-left">
+
+                        <figure class="effect-oscar">
+                            <img src="~/Content/p5.jpg" style="width:500px;height:500px" />
+                            <figcaption>
+
+                                <p><i class="lnr lnr-magnifier"></i></p>
+                            </figcaption>
+                        </figure>
+
+                    </div>
+                    <div class="col-md-3 g-left">
+
+                        <figure class="effect-oscar">
+                            <img src="~/Content/admin1.jpg" style="width:500px;height:500px" />
+                            <figcaption>
+
+                                <p><i class="lnr lnr-magnifier"></i></p>
+                            </figcaption>
+                        </figure>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="gallery">
+                <div class="gallery-bottom grid">
+
+                    <div class="col-md-3 g-left">
+
+                        <figure class="effect-oscar">
+                            <img src="~/Content/in11.jpg" style="width:500px;height:500px" />
+                            <figcaption>
+
+                                <p><i class="lnr lnr-magnifier"></i></p>
+                            </figcaption>
+                        </figure>
+
+                    </div>
+                    <div class="col-md-3 g-left">
+
+                        <figure class="effect-oscar">
+                            <img src="~/Content/in10.jpg" style="width:500px;height:500px" />
+                            <figcaption>
+
+                                <p><i class="lnr lnr-magnifier"></i></p>
+                            </figcaption>
+                        </figure>
+
+                    </div>
+                    <div class="col-md-3 g-left">
+
+                        <figure class="effect-oscar">
+                            <img src="~/Content/3.jpg" style="width:500px;height:500px" />
+                            <figcaption>
+
+                                <p><i class="lnr lnr-magnifier"></i></p>
+                            </figcaption>
+                        </figure>
+
+                    </div>
+                    <div class="col-md-3 g-left">
+
+                        <figure class="effect-oscar">
+                            <img src="~/Content/2.jpg" style="width:500px;height:500px" />
+                            <figcaption>
+
+                                <p><i class="lnr lnr-magnifier"></i></p>
+                            </figcaption>
+                        </figure>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <footer style="background-color:aquamarine;width:100%;height:100px">
+
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</ p>
+        </footer>
+    </div>
+                @Scripts.Render("~/bundles/jquery")
+                @Scripts.Render("~/bundles/bootstrap")
+
+                <script>
+                    // Get the modal
+                    var modal = document.getElementById('myModal');
+
+                    // Get the button that opens the modal
+                    var btn = document.getElementById("myBtn");
+
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+
+                    // When the user clicks on the button, open the modal
+                    btn.onclick = function () {
+                        modal.style.display = "block";
+                    }
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function () {
+                        modal.style.display = "block";
+                    }
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+
+
+
+                </script>
+</body>
+</html>
+

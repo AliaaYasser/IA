@@ -1,0 +1,32 @@
+﻿@model IEnumerable<IAIA.Models.Project>
+
+@{
+    ViewBag.Title = "CurrentProjects";
+}
+
+<h3>Current Projects</h3>
+
+@foreach (var item in Model)
+{
+
+    <p>ProjectName:</p>
+
+    @Html.DisplayFor(modelItem => item.ProjectName)
+    <br />
+    <p>  ProjectDescription:</p>
+    @Html.DisplayFor(modelItem => item.ProjectDescription)
+    <br />
+    <p> StartDate:
+   </p>
+    @Html.DisplayFor(modelItem => item.StartDate)
+    <br />
+    <p>endData:
+    </p>
+    @Html.DisplayFor(modelItem => item.endData)
+    <br />
+    <p> Price:
+    </p>
+    @Html.DisplayFor(modelItem => item.price)
+
+    }
+
