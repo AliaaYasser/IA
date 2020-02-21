@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="~/Content/style.css" rel='stylesheet' type='text/css' />
+    <!-- Graph CSS -->
+    <link href="~/Content/font-awesome.css" rel="stylesheet">
+    <!-- jQuery -->
+    <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'>
+    <!-- lined-icons -->
+    <link rel="stylesheet" href="~/Content/icon-font.min.css" type='text/css' />
+    <!-- //lined-icons -->
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <!----->
+    <script src="~/Scripts/modernizr.custom.04022.js"></script>
+    <script src="~/Scripts/jquery.chocolat.js"></script>
+    <link rel="stylesheet" href="~/Content/chocolat.css" type="text/css" media="screen" charset="utf-8">
+ 
+    <!--light-box-files -->
+    <script type="text/javascript">
+        $(function () {
+            $('.gallery-bottom a').Chocolat();
+        });
+    </script>
+
+    <!--clock init-->
+
+   
+
+</head>
+<body>
+    <div class="page-container">
+        <!--/content-inner-->
+        <div class="left-content">
+            <div class="container" >
+                <div class="navbar-header" >
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Projects Manangement System", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
+                    </ul>
+
+                </div>
+
+
+
+
+            </div>
+        
+        <div class="inner-content">
+            <!-- header-starts -->
+            <div class="header-section">
+                <!--menu-right-->
+                <div class="top_menu">
+
+
+                    <script type="text/javascript">
+                        $('.main-search').hide();
+                        $('button').click(function () {
+                            $('.main-search').show();
+                            $('.main-search text').focus();
+                        }
+                        );
+                        $('.close').click(function () {
+                            $('.main-search').hide();
+                        });
+                    </script>
+                    <!--/profile_details-->
+                    <div class="profile_details_left">
+                        <ul class="nofitications-dropdown">
+                            <li class="dropdown note dra-down">
+                                <div id="dd" class="wrapper-dropdown-3" tabindex="1">
+                                  @RenderSection("n1",false)
+                                    </div>
+                                <script type="text/javascript">
+
+                                    function DropDown(el) {
+                                        this.dd = el;
+                                        this.placeholder = this.dd.children('span');
+                                        this.opts = this.dd.find('ul.dropdown > li');
+                                        this.val = '';
+                                        this.index = -1;
+                                        this.initEvents();
+                                    }
+                                    DropDown.prototype = {
+                                        initEvents: function () {
+                                            var obj = this;
+
+                                            obj.dd.on('click', function (event) {
+                                                $(this).toggleClass('active');
+                                                return false;
+                                            });
+
+                                            obj.opts.on('click', function () {
+                                                var opt = $(this);
+                                                obj.val = opt.text();
+                                                obj.index = opt.index();
+                                                obj.placeholder.text(obj.val);
+                                            });
+                                        },
+                                        getValue: function () {
+                                            return this.val;
+                                        },
+                                        getIndex: function () {
+                                            return this.index;
+                                        }
+                                    }
+
+                                    $(function () {
+
+                                        var dd = new DropDown($('#dd'));
+
+                                        $(document).click(function () {
+                                            // all dropdowns
+                                            $('.wrapper-dropdown-3').removeClass('active');
+                                        });
+
+                                    });
+
+                                </script>
+
+                            </li>
+
+                     
+
+                            
+                        
+                            <div class="clearfix"></div>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!--//profile_details-->
+                </div>
+                <!--//menu-right-->
+                <div class="clearfix"></div>
+            </div>
+            <!-- //header-ends -->
+            <div class="outter-wp">
+
+            </div>
+            <div class="container body-content">
+                @RenderBody()
+
+                <hr />
+                <footer style="height:30px">
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                </footer>
+
+            </div>
+
+            <!--/gallery-->
+
+        </div>
+
+    </div>
+
+    <!--//outer-wp-->
+    </div>
+
+    <div class="sidebar-menu">
+        <header class="logo">
+            <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="index.html">
+                <span id="logo"> <h1>Projects</h1></span>
+                <!--<img id="logo" src="" alt="Logo"/>-->
+            </a>
+        </header>
+        <div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
+        <!--/down-->
+        <div class="down">
+            @RenderSection("profile", false)
+
+        </div>
+        <!--//down-->
+        @RenderSection("notify", false)
+    </div>
+    <div class="clearfix"></div>
+
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function () {
+            if (toggle) {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({ "position": "absolute" });
+            }
+            else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function () {
+                    $("#menu span").css({ "position": "relative" });
+                }, 400);
+            }
+
+            toggle = !toggle;
+        });
+    </script>
+    <!--js -->
+    <script src="~/Scripts/jquery.nicescroll.js"></script>
+    <script src="~/Scripts/scripts.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="s~/Scripts/bootstrap.min.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

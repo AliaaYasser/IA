@@ -1,0 +1,9 @@
+﻿@model IAIA.Models.Project
+
+@{
+    ViewBag.Title = "isDelivered";
+}
+
+<h2>is Delivered or in progeress </h2>
+@Html.ActionLink("Delivered", "Delivered", new { pid =Model.ProjectID }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+@Html.ActionLink("  on progress", "on_progress", new { pid =Model.ProjectID},htmlAttributes: new { @class = "btn btn-primary", @role = "button" })

@@ -1,0 +1,67 @@
+﻿@model IAIA.Models.User
+
+@{
+    ViewBag.Title = "JonurDeveloperProfile";
+}
+@section profile{
+    <!-- <img src="@Url.Content(@Model.UserPhoto)" />-->
+    <img src='@Url.Content(Model.UserPhoto)' style=" width:150px ;height:150px" />
+    <span class=" name-caret">@Model.UserFirstName @Model.UserLasttName</span>
+    <p>@Model.UserJob_description</p>
+    <p>@Model.UserEmail</p>
+    <p>@Model.UserPhone</p>
+    <ul>
+
+        <li><a class="tooltips" href="#"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
+        <li><a class="tooltips" href='@Url.Action("Edit", "Users", new { id = Model.UserId })'><span>Settings</span><i class="lnr lnr-cog"></i></a></li>
+        <li><a class="tooltips" href='@Url.Action("Logout", "Home")'><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
+
+
+    </ul>
+}
+    <div class="container body-content">
+        @Html.ActionLink("requstes", "listRequstes", new { tlid = Model.UserId })
+        <div class="container body-content">
+            <h2> @Model.UserFirstName Profile</h2>
+            <div>
+
+
+                <a href='@Url.Action("CurrentProjects", "Users", new { tlid = Model.UserId })'>
+                    <img src='@Url.Content("~/Content/project.jpg" )' />
+
+                </a>
+            </div>
+            <div>
+
+                @Html.ActionLink("Current projects", "CurrentProjects", new { tlid = Model.UserId }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+            </div>
+
+
+
+            <div>
+
+
+                <a href='@Url.Action("Delevered", "Users", new { tlid = Model.UserId })'>
+                    <img src='@Url.Content("~/Content/project.jpg" )' />
+
+                </a>
+            </div>
+            <div>
+
+                @Html.ActionLink("Delevered projects", "Delevered", new { tlid = Model.UserId }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+            </div>
+            <div>
+
+
+                <a href='@Url.Action("current", "Users", new { id = Model.UserId })'>
+                    <img src='@Url.Content("~/Content/project.jpg" )' />
+
+                </a>
+            </div>
+            <div>
+
+                @Html.ActionLink("Controle projects", "current", new { id = Model.UserId }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+            </div>
+
+        </div>
+        </div>

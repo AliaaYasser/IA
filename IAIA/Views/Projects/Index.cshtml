@@ -1,0 +1,54 @@
+﻿@model IEnumerable<IAIA.Models.Project>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section notify{
+    <ul>
+       
+        <li>
+
+            @Html.ActionLink("Create New", "Create")
+        </li>
+    </ul>
+}
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+</p>
+
+<div class="gallery">
+    <div class="gallery-bottom grid">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 g-left">
+                <a href='@Url.Action("Details", "Projects", new { id = item.ProjectID })' rel="title" class="b-link-stripe b-animate-go  thickbox">
+                    <figure class="effect-oscar">
+
+                        <img src="~/Content/p4.jpg" />
+                        <figcaption>
+                            <h4>@item.ProjectName</h4>
+                            <p><i class="lnr lnr-magnifier"></i></p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
+            <br />
+
+            @Html.ActionLink("Edit", "Edit", new { id = item.ProjectID }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })<br />
+            @Html.ActionLink("Details", "Details", new { id = item.ProjectID }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProjectID }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+            <br />
+            @Html.ActionLink("asign project manager", "Asignpm", "Users", new { id = item.ProjectID, state = item.Projectstatus }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+            <br />
+
+        }
+    </div>
+</div>
+
+
+

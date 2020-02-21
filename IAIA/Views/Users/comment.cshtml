@@ -1,0 +1,45 @@
+﻿@model IAIA.Models.Comment
+
+@{
+    ViewBag.Title = "comment";
+}
+
+
+
+
+    
+<div class="buttons login">
+    <ul>
+        <li><a href="#" class="hvr-sweep-to-right">Public Comment</a></li>
+        <li class="lost"><a href="#" class="hvr-sweep-to-left">Privete</a> </li>
+
+    </ul>
+</div>
+    <h3 class="inner-tittle t-inner">comment</h3>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <input type="hidden" name="pid" value="@ViewBag.pid">
+            <input type="hidden" name="pmid" value="@ViewBag.pmid">
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.content, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.content, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.content, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+
+        }
+
+       

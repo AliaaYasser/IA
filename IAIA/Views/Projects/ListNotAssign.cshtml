@@ -1,0 +1,39 @@
+﻿@model IEnumerable<IAIA.Models.Project>
+
+@{
+    ViewBag.Title = "ListNotAssign";
+}
+
+<h2>List of Not Assign</h2>
+
+<div class="container body-content">
+
+    <div class="gallery">
+        <div class="gallery-bottom grid">
+
+            @foreach (var item in Model)
+            {
+            <div class="col-md-3 g-left">
+                <a href='@Url.Action("Details", "Projects",new { id=item.ProjectID})' rel="title" class="b-link-stripe b-animate-go  thickbox">
+                    <figure class="effect-oscar">
+
+                        <img src="~/Content/p4.jpg" />
+                        <figcaption>
+                            <h4>@item.ProjectName</h4>
+                            <p><i class="lnr lnr-magnifier"></i></p>
+                        </figcaption>
+                    </figure>
+                </a>
+                @Html.ActionLink("Update", "Edit", new { id = item.ProjectID }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+
+                @Html.ActionLink("Remove", "DeleteProject", new { id = item.ProjectID }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })<br />
+
+
+            </div>
+                
+                  }
+
+
+        </div>
+    </div>
+    </div>

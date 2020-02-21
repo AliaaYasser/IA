@@ -1,0 +1,82 @@
+﻿@model IAIA.Models.User
+
+@{
+    ViewBag.Title = "ProjectManagerProfile";
+}
+@section profile{
+    <!-- <img src="@Url.Content(@Model.UserPhoto)" />-->
+    <img src='@Url.Content(Model.UserPhoto)' style=" width:150px ;height:150px" />
+    <span class=" name-caret">@Model.UserFirstName @Model.UserLasttName</span>
+    <p>@Model.UserJob_description</p>
+    <p>@Model.UserEmail</p>
+    <p>@Model.UserPhone</p>
+    <ul>
+
+        <li><a class="tooltips" href="#"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
+        <li><a class="tooltips" href='@Url.Action("Edit", "Users", new { id = Model.UserId })'><span>Settings</span><i class="lnr lnr-cog"></i></a></li>
+        <li><a class="tooltips" href='@Url.Action("Logout", "Home")'><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
+    </ul>
+}
+@section notify{
+    <ul>
+        <li><a href='@Url.Action("listRequstes", "Users", new { tlid = Model.UserId })'>Requstes</a></li>
+
+        <li>
+            @Html.ActionLink("feedbacks", "feedbacks")
+        </li>
+
+        <li>
+            @Html.ActionLink("projects that  delivered ", "DeleveredPRojectsByPm", new { pmid = Model.UserId })
+        </li>
+
+        <li>
+            @Html.ActionLink("assign a team leader", "PMHome", new { id = ViewBag.pmid })
+        </li>
+        <li>
+            @Html.ActionLink("managing projects", "ManagingPRojectBypm", new { pmid = Model.UserId })
+        </li>
+        <li>
+            @Html.ActionLink("PMHome", "PMHome", new { id = Model.UserId })
+        </li>
+    </ul>
+}
+
+    <div class="container body-content">
+
+
+        <h3> @Model.UserFirstName Profile</h3>
+
+        <div style="display: inline-flex;">
+            <div>
+
+                <a href='@Url.Action("DeleveredPRojectsByPm", "Users", new { pmid = Model.UserId })'>
+                    <img src='@Url.Content("~/Content/p6.jpg")' style="width:600px;height:500px" />
+                </a>
+            </div>
+            <div>
+
+
+                <a href='@Url.Action("PMHome",new { id = Model.UserId })'>
+                    <img src='@Url.Content("~/Content/p3.jpg" )' style="width:600px;height:500px" />
+
+                </a>
+            </div>
+
+        </div>
+
+
+
+        <div>
+            <a href='@Url.Action("ManagingPRojectBypm",new { pmid = Model.UserId })'>
+                <img src='@Url.Content("~/Content/project.jpg" )' />
+
+            </a>
+        </div>
+        <div>
+
+            @Html.ActionLink("managing projects", "ManagingPRojectBypm", new { pmid = Model.UserId }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+        </div>
+
+
+
+    </div>

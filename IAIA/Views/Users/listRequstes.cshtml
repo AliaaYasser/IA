@@ -1,0 +1,17 @@
+﻿@model IEnumerable<IAIA.Models.Requst>
+
+<div class="container body-content">
+    <h2>listRequstes</h2>
+    @foreach (var item in Model)
+    {
+        @ViewBag.list[0]
+        <hr />
+        @Html.ActionLink("Accept", "Accept", new { rid = item.requestID, toid = item.ToUser, pid = item.projectid }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+        <hr />
+        @Html.ActionLink("reject", "reject", new { rid = item.requestID, toid = item.ToUser }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+
+        <hr />
+
+    }
+
+</div>

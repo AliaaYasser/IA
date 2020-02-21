@@ -1,0 +1,77 @@
+﻿@model IAIA.Models.User
+
+@{
+
+
+    ViewBag.Title = "Profile";
+}
+
+@section profile{
+    <!-- <img src="@Url.Content(@Model.UserPhoto)" />-->
+
+<img src="~/Content/1.jpg"  style=" width:150px ;height:150px"/> 
+<span class=" name-caret">@Model.UserFirstName @Model.UserLasttName</span>
+<p>@Model.UserJob_description</p>
+<p>@Model.UserEmail</p>
+<p>@Model.UserPhone</p>
+<ul>
+
+    <li><a class="tooltips" href="#"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
+    <li><a class="tooltips" href='@Url.Action("Edit", "Users", new { id = Model.UserId })'><span>Settings</span><i class="lnr lnr-cog"></i></a></li>
+    <li><a class="tooltips" href='@Url.Action("Logout", "Home")'><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
+
+
+</ul>
+}
+<div class="container body-content">
+    <h2> @Model.UserFirstName Profile</h2>
+    <div>
+
+
+        <a href='@Url.Action("Index", "Projects")'>
+            <img src='@Url.Content("~/Content/project.jpg" )' style="width:100%;" />
+
+        </a>
+    </div>
+    <div>
+
+        @Html.ActionLink(" Controle projects", "Index", "Projects", null, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+    </div>
+
+   
+    
+
+    <div style="display: inline-flex;">
+        <div>
+
+            <a href='@Url.Action("CustomernotdeliveredProjects", "Users")'>
+                <img src='@Url.Content("~/Content/p6.jpg")' />
+            </a>
+        </div>
+        <div>
+
+
+            <a href='@Url.Action("CustomerdeliveredProjects", "Users")'>
+                <img src='@Url.Content("~/Content/p4.jpg")' style="width:600px;height:425px" />
+
+            </a>
+        </div>
+
+    </div>
+    <div style="display: inline-flex;">
+        <div style="margin-right:89%">
+            @Html.ActionLink("   Current projects   ", "CustomernotdeliveredProjects", null, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+        </div>
+
+        <div>
+            @Html.ActionLink("    Delevered projects    ", "CustomerdeliveredProjects", null, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+

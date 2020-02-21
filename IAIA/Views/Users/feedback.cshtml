@@ -1,0 +1,60 @@
+﻿@model IAIA.Models.Feedback
+
+@{
+                /**/
+
+                ViewBag.Title = "feedback";
+}
+
+<h2>feedback</h2>
+
+<div class="col-md-6 graph-2">
+    <h3 class="inner-tittle two">feed back  </h3>
+    <div class="grid-1">
+        <div class="form-body">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4>Feedback</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <p>Feedback</p>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.feedbackContent, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.feedbackContent, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Evaluate, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Evaluate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Evaluate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <input type="hidden" name="FromUser" value="@ViewBag.tlid" />
+
+
+                    <input type="hidden" name="ToUser" value="@ViewBag.jdid" />
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Evaluate" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

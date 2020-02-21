@@ -1,0 +1,34 @@
+﻿@model IEnumerable<IAIA.Models.User>
+
+@{
+    ViewBag.Title = "Asignpm";
+}
+
+<h2>Asignpm</h2>
+
+
+<div class="gallery">
+    <div class="gallery-bottom grid">
+
+        @foreach (var item in Model)
+        {
+
+            <div class="col-md-3 g-left">
+                <a href='@Url.Action("Details", "Users",new { id=item.UserId})' rel="title" class="b-link-stripe b-animate-go  thickbox">
+                    <figure class="effect-oscar">
+
+                        <img src="@Url.Content(item.UserPhoto)" />
+                        <figcaption>
+                            <h4>@item.UserFirstName</h4>
+                            <p><i class="lnr lnr-magnifier"></i></p>
+                        </figcaption>
+                    </figure>
+                </a>
+                <br />
+
+                @Html.ActionLink("choose", "Asign", new { pid = ViewBag.pid, pmid = item.UserId, state = ViewBag.state }, htmlAttributes: new { @class = "btn btn-primary", @role = "button" })
+                </div>
+                }
+
+            </div>
+        </div>
